@@ -1,10 +1,21 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 643px;
   gap: 16px;
   padding: 16px;
   margin: 16px auto;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+}
+
+.searchInput {
+  flex: 1;
 }
 
 .movieList {
@@ -32,15 +43,19 @@
 }
 
 .movieRuntime {
-  height: 26px;
+  height: 18px;
   margin-left: 3px;
+}
+
+.runtimeIcon {
+  height: 18px;
 }
 
 .drawerContainer {
   display: flex;
   flex-direction: row;
   padding: 18px;
-  width: 70vw;
+  width: 50vw;
 }
 
 .drawerContent {

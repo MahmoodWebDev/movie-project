@@ -33,7 +33,7 @@ const MovieDetails = ({ movie }) => {
             </Box>
 
             <Box variant="body2" className="movieRuntimeContainer">
-              <Box>
+              <Box className="runtimeIcon">
                 <ScheduleIcon />
               </Box>
               <Box className="movieRuntime">

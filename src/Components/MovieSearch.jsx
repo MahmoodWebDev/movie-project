@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Grid, IconButton } from "@mui/material";
+import { TextField, Box, IconButton } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { debounce } from "lodash";
 import SearchIcon from "@mui/icons-material/Search";
@@ -33,13 +33,12 @@ const MovieSearch = ({ onSearch }) => {
   };
 
   const handleAutocompleteChange = (event, value) => {
-    setQuery(value || ""); // Set the query to the selected autocomplete value
+    setQuery(value || "");
   };
 
   return (
-    <Grid container spacing={2} alignItems="center">
-      <Grid item xs={8}>
-        {/* Use Autocomplete component for search field */}
+    <Box className="searchContainer">
+      <Box className="searchInput">
         <Autocomplete
           fullWidth
           options={autocompleteOptions}
@@ -61,13 +60,13 @@ const MovieSearch = ({ onSearch }) => {
           )}
           onChange={handleAutocompleteChange}
         />
-      </Grid>
-      <Grid item xs={4}>
+      </Box>
+      <Box item xs={4}>
         <IconButton size="large" onClick={handleSearch}>
           <SearchIcon />
         </IconButton>
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   );
 };
 
