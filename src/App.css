@@ -1,0 +1,31 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+  padding: 16px;
+  margin: 16px auto;
+}
+
+.movieList {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.movieCard {
+  background: green;
+  gap: 10px;
+  display: flex;
+  width: 610px;
+}
+
+.genresContainer {
+  display: flex;
+  gap: 8px;
+  padding-top: 18px;
+}
+
+.movieRuntime {
+  padding-top: 18px;
+}

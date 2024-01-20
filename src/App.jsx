@@ -1,7 +1,9 @@
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React, { useState, useEffect } from "react";
 import { Container, CssBaseline, Paper, Typography } from "@mui/material";
-import MovieSearch from "./components/MovieSearch";
-import MovieList from "./components/MovieList";
+import MovieSearch from "./Components/MovieSearch";
+import MovieList from "./Components/MovieList";
+import "./App.css";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -32,20 +34,25 @@ const App = () => {
     }
   };
 
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+
   return (
-    <Container component="main" maxWidth="md">
-      <CssBaseline />
-      <Paper elevation={3} style={{ padding: "20px", marginTop: "20px" }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Movie Search Project
-        </Typography>
-        <MovieSearch onSearch={searchMovies} />
-        <Typography variant="h5" style={{ margin: "20px 0" }}>
-          Movie List
-        </Typography>
-        <MovieList movies={movies} />
-      </Paper>
-    </Container>
+    <ThemeProvider theme={darkTheme}>
+      <Container component="main">
+        <CssBaseline />
+        <Paper elevation={3} className="mainContainer">
+          <Typography variant="h4" align="center" gutterBottom>
+            Movie Search Project
+          </Typography>
+          <MovieSearch onSearch={searchMovies} />
+          <MovieList movies={movies} />
+        </Paper>
+      </Container>
+    </ThemeProvider>
   );
 };
 
