@@ -26,6 +26,13 @@
   padding-top: 18px;
 }
 
-.movieRuntime {
+.movieRuntimeContainer {
   padding-top: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.movieRuntime {
+  height: 26px;
+  margin-left: 3px;
 }

@@ -8,8 +8,10 @@ import {
   Chip,
   Typography,
 } from "@mui/material";
+import ScheduleIcon from "@mui/icons-material/Schedule";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import MovieDetails from "./MovieDetails";
+import { convertRuntimeToMinutes } from "../utils/utils";
 
 export default function MovieCard({ movie }) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -57,8 +59,13 @@ export default function MovieCard({ movie }) {
                 ))}
               </Box>
 
-              <Typography variant="body2" className="movieRuntime">
-                Runtime: {movie.runtime}
+              <Typography variant="body2" className="movieRuntimeContainer">
+                <Box>
+                  <ScheduleIcon />
+                </Box>
+                <Box className="movieRuntime">
+                  {convertRuntimeToMinutes(movie.runtime)}
+                </Box>
               </Typography>
             </CardContent>
           </Box>
