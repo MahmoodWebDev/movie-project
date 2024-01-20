@@ -1,44 +1,38 @@
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import React, { useState, useEffect } from "react";
-import { Container, CssBaseline, Paper, Typography } from "@mui/material";
+import React, { useState } from "react";
+import {
+  ThemeProvider,
+  createTheme,
+  Container,
+  CssBaseline,
+  Paper,
+  Typography,
+} from "@mui/material";
 import MovieSearch from "./Components/MovieSearch";
 import MovieList from "./Components/MovieList";
+import useFetchMovies from "./Utils/useFetchMovies"; // Custom hook for fetching movies
 import "./App.css";
 
+// Dark theme configuration for the app
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
+
 const App = () => {
-  const [movies, setMovies] = useState([]);
+  const { data: movies, isLoading, error, setUrl } = useFetchMovies();
+  const [searchQuery, setSearchQuery] = useState("");
 
-  useEffect(() => {
-    fetchDefaultMovies();
-  }, []);
-
-  const fetchDefaultMovies = async () => {
-    try {
-      const response = await fetch("https://api.movies.dcts.se/movies");
-      const data = await response.json();
-      setMovies(data || []);
-    } catch (error) {
-      console.error("Error fetching default movies:", error.message);
-    }
+  const handleMovieSearch = (searchQuery) => {
+    setSearchQuery(searchQuery);
+    setUrl(`https://api.movies.dcts.se/rpc/movies_search?q=${searchQuery}`);
   };
 
-  const searchMovies = async (query) => {
-    try {
-      const response = await fetch(
-        `https://api.movies.dcts.se/rpc/movies_search?q=${query}`
-      );
-      const data = await response.json();
-      setMovies(data || []);
-    } catch (error) {
-      console.error("Error fetching movies:", error.message);
-    }
+  const renderStatusMessage = () => {
+    if (isLoading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+    return null;
   };
-
-  const darkTheme = createTheme({
-    palette: {
-      mode: "dark",
-    },
-  });
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -48,7 +42,9 @@ const App = () => {
           <Typography variant="h4" align="center" gutterBottom>
             Movie Search Project
           </Typography>
-          <MovieSearch onSearch={searchMovies} />
+          <MovieSearch onSearch={handleMovieSearch} />
+          {renderStatusMessage()}
+          {movies.length === 0 && searchQuery && <p>No movies found</p>}
           <MovieList movies={movies} />
         </Paper>
       </Container>
