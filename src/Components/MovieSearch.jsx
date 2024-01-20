@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { TextField, Button, Grid } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
-import { debounce } from 'lodash';
+import React, { useState, useEffect } from "react";
+import { TextField, Button, Grid } from "@mui/material";
+import Autocomplete from "@mui/material/Autocomplete";
+import { debounce } from "lodash";
 
 const MovieSearch = ({ onSearch }) => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [autocompleteOptions, setAutocompleteOptions] = useState([]);
 
   const debouncedAutocomplete = debounce(async (searchQuery) => {
     try {
-      const response = await fetch(`https://api.movies.dcts.se/rpc/movies_autocomplete?q=${searchQuery}`);
+      const response = await fetch(
+        `https://api.movies.dcts.se/rpc/movies_autocomplete?q=${searchQuery}`
+      );
       const data = await response.json();
       setAutocompleteOptions((data || []).slice(0, 5));
     } catch (error) {
-      console.error('Error fetching autocomplete options:', error.message);
+      console.error("Error fetching autocomplete options:", error.message);
     }
   }, 500);
 
   useEffect(() => {
-    if (query.trim() !== '') {
+    if (query.trim() !== "") {
       debouncedAutocomplete(query);
     } else {
       setAutocompleteOptions([]);
@@ -30,7 +32,7 @@ const MovieSearch = ({ onSearch }) => {
   };
 
   const handleAutocompleteChange = (event, value) => {
-    setQuery(value || ''); // Set the query to the selected autocomplete value
+    setQuery(value || ""); // Set the query to the selected autocomplete value
   };
 
   return (
@@ -40,7 +42,7 @@ const MovieSearch = ({ onSearch }) => {
         <Autocomplete
           fullWidth
           options={autocompleteOptions}
-          getOptionLabel={(option) => option || ''}
+          getOptionLabel={(option) => option || ""}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -54,7 +56,12 @@ const MovieSearch = ({ onSearch }) => {
         />
       </Grid>
       <Grid item xs={4}>
-        <Button variant="contained" color="primary" disabled={query.trim() === ''} onClick={handleSearch}>
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={query.trim() === ""}
+          onClick={handleSearch}
+        >
           Search
         </Button>
       </Grid>
