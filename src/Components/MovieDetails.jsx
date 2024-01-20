@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, CardContent, CardMedia, Chip, Typography } from "@mui/material";
 import ScheduleIcon from "@mui/icons-material/Schedule";
-import { convertRuntimeToMinutes } from "../utils/utils";
+import { formatRuntime } from "../Utils/utils";
 
 
 const MovieDetails = ({ movie }) => {
@@ -32,14 +32,14 @@ const MovieDetails = ({ movie }) => {
               ))}
             </Box>
 
-            <Typography variant="body2" className="movieRuntimeContainer">
+            <Box variant="body2" className="movieRuntimeContainer">
               <Box>
                 <ScheduleIcon />
               </Box>
               <Box className="movieRuntime">
-                {convertRuntimeToMinutes(movie.runtime)}
+                {formatRuntime(movie.runtime)}
               </Box>
-            </Typography>
+            </Box>
           </CardContent>
         </Box>
       </Box>

@@ -1,31 +1,21 @@
-function convertRuntimeToMinutes(runtime) {
+function formatRuntime(runtimeInMinutes) {
   const pluralize = (count, singular, plural) =>
     count === 1 ? singular : plural;
 
-  // Check for runtime in hours
-  if (runtime >= 1) {
-    const hours = Math.floor(runtime);
-    const minutes = Math.round((runtime - hours) * 60);
+  // Check if runtime is 60 minutes or more (1 hour or more)
+  if (runtimeInMinutes >= 60) {
+    const hours = Math.floor(runtimeInMinutes / 60);
+    const minutes = runtimeInMinutes % 60;
     const hourText = `${hours} ${pluralize(hours, "hour", "hours")}`;
-    const minuteText =
-      minutes > 0
-        ? `${minutes} ${pluralize(minutes, "minute", "minutes")}`
-        : "";
+    const minuteText = minutes > 0
+      ? `${minutes} ${pluralize(minutes, "minute", "minutes")}`
+      : "";
 
     return `${hourText}${minutes > 0 ? " and " + minuteText : ""}`;
   }
 
-  // For runtimes less than 1 hour
-  const minutes = Math.round(runtime * 60);
-  const seconds = Math.round(runtime * 3600);
-
-  if (runtime >= 0.02) {
-    return minutes === 60
-      ? "1 hour"
-      : `${minutes} ${pluralize(minutes, "minute", "minutes")}`;
-  }
-
-  return `${seconds} ${pluralize(seconds, "second", "seconds")}`;
+  // For runtimes less than 60 minutes
+  return `${runtimeInMinutes} ${pluralize(runtimeInMinutes, "minute", "minutes")}`;
 }
 
-export { convertRuntimeToMinutes };
+export { formatRuntime };

@@ -5,7 +5,6 @@ import {
   Container,
   CssBaseline,
   Paper,
-  Typography,
 } from "@mui/material";
 import MovieSearch from "./Components/MovieSearch";
 import MovieList from "./Components/MovieList";
@@ -39,9 +38,6 @@ const App = () => {
       <Container component="main">
         <CssBaseline />
         <Paper elevation={3} className="mainContainer">
-          <Typography variant="h4" align="center" gutterBottom>
-            Movie Search Project
-          </Typography>
           <MovieSearch onSearch={handleMovieSearch} />
           {renderStatusMessage()}
           {movies.length === 0 && searchQuery && <p>No movies found</p>}

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Button, Grid } from "@mui/material";
+import { TextField, Grid, IconButton } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { debounce } from "lodash";
+import SearchIcon from "@mui/icons-material/Search";
 
 const MovieSearch = ({ onSearch }) => {
   const [query, setQuery] = useState("");
@@ -43,6 +44,7 @@ const MovieSearch = ({ onSearch }) => {
           fullWidth
           options={autocompleteOptions}
           getOptionLabel={(option) => option || ""}
+          value={query}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -50,20 +52,20 @@ const MovieSearch = ({ onSearch }) => {
               variant="outlined"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch();
+                }
+              }}
             />
           )}
           onChange={handleAutocompleteChange}
         />
       </Grid>
       <Grid item xs={4}>
-        <Button
-          variant="contained"
-          color="primary"
-          disabled={query.trim() === ""}
-          onClick={handleSearch}
-        >
-          Search
-        </Button>
+        <IconButton size="large" onClick={handleSearch}>
+          <SearchIcon />
+        </IconButton>
       </Grid>
     </Grid>
   );
