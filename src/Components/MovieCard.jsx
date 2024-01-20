@@ -45,9 +45,7 @@ export default function MovieCard({ movie }) {
               >
                 {movie.overview.split(" ").slice(0, 15).join(" ") + "..."}
               </Typography>
-              <Typography color="text.secondary">
-                {movie.release_date}
-              </Typography>
+              <Typography>Relased: {movie.released}</Typography>
               <Box className="genresContainer">
                 {movie.genres.map((genre, index) => (
                   <Chip
@@ -88,7 +86,7 @@ export default function MovieCard({ movie }) {
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
-          <MovieDetails movie={{ title: movie.title }} />
+          <MovieDetails movie={{ ...movie }} />
         </Box>
       </SwipeableDrawer>
     </Box>

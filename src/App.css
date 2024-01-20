@@ -14,7 +14,6 @@
 }
 
 .movieCard {
-  background: green;
   gap: 10px;
   display: flex;
   width: 610px;
@@ -35,4 +34,23 @@
 .movieRuntime {
   height: 26px;
   margin-left: 3px;
+}
+
+.drawerContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 18px;
+  width: 70vw;
+}
+
+.drawerContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.drawerPoster {
+  width: 200px;
+  margin-top: 18px;
+  cursor: pointer;
 }
