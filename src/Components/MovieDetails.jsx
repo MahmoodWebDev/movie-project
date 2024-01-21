@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, CardContent, CardMedia, Chip, Typography } from "@mui/material";
 import ScheduleIcon from "@mui/icons-material/Schedule";
-import { formatRuntime } from "../Utils/utils";
+import { formatRuntime } from "../Utils";
 
 
 const MovieDetails = ({ movie }) => {

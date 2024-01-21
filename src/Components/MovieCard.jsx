@@ -11,7 +11,7 @@ import {
 import ScheduleIcon from "@mui/icons-material/Schedule";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import MovieDetails from "./MovieDetails";
-import { formatRuntime } from "../Utils/utils";
+import { formatRuntime } from "../Utils";
 
 export default function MovieCard({ movie }) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);

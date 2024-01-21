@@ -31,4 +31,4 @@ const useFetchMovies = () => {
   return { data, isLoading, error, setUrl };
 };
 
-export default useFetchMovies;
+export { useFetchMovies }

@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import MovieSearch from "./Components/MovieSearch";
 import MovieList from "./Components/MovieList";
-import useFetchMovies from "./Utils/useFetchMovies"; // Custom hook for fetching movies
+import { useFetchMovies } from "./Utils/useFetchMovies";
 import "./App.css";
 
 // Dark theme configuration for the app

@@ -61,7 +61,7 @@ const MovieSearch = ({ onSearch }) => {
           onChange={handleAutocompleteChange}
         />
       </Box>
-      <Box item xs={4}>
+      <Box>
         <IconButton size="large" onClick={handleSearch}>
           <SearchIcon />
         </IconButton>
