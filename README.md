@@ -1,23 +1,23 @@
 ## Movie Project
 
-This is a coding challenge done by Mahmood shah on 20th and 21st Jan 2024.
+This project is a front-end task focused on retrieving movie information. At first glance, you are greeted with just a search bar. As you start typing, suggestions automatically appear, thanks to the implementation of debouncing. Pressing the enter key after your search triggers the display of a collection of movies. Each movie is showcased in a simple yet stylish card that reveals basic details. For more information, simply click on a movie card, and a detailed drawer will emerge. Additionally, if you click on a movie's image, it will open in a new tab, utilizing the provided link to the movie's poster.
 
-This project is a front-end task focused on retrieving movie information. Initially, you'll notice only a search bar. When you start typing, suggestions appear automatically, I used debouncing here. Pressing the enter key after searching will display a collection of movies. Each movie is presented in a simple, stylish card that shows only basic details. Clicking on a movie card reveals more information in a drawer. If you click on a movie's image, it will open in a new tab using the link provided for the movie's poster.
-
-I have used Material UI library in order to give it a clean and elegant touch as well maintaining the best practices.
+To achieve a clean and elegant look while adhering to best practices, I have utilized the Material UI library.
 
 ### Installation Instructions
-* `npm install --legacy-peer-deps`
-* `npm run dev`
 
-Note: Since the `@testing-library/react-hooks` requires a peer dependency of `@types/react` version `^16.9.0` or `^17.0.0`, but in this project we are using `@types/react@18.2.48`, therefore we must use `--legacy-peer-deps`. I could have spent a bit more time to write a unit test without using this particular library, but I wanted to manage it with limited time.
+- `npm install`
+- `npm run dev`
 
 ### Testing
-* `npm run test`
+
+- `npm run test`
 
 ### Minimum requirements
-* Node 18.x
-* NPM 9.x
+
+- Node 18.x
+- NPM 9.x
 
 ### Contacts
-* https://mahmood.io
+
+- https://mahmood.io
