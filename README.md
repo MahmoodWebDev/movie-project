@@ -7,8 +7,10 @@ This project is a front-end task focused on retrieving movie information. Initia
 I have used Material UI library in order to give it a clean and elegant touch as well maintaining the best practices.
 
 ### Installation Instructions
-* `npm i`
+* `npm install --legacy-peer-deps`
 * `npm run dev`
+
+Note: Since the `@testing-library/react-hooks` requires a peer dependency of `@types/react` version `^16.9.0` or `^17.0.0`, but in this project we are using `@types/react@18.2.48`, therefore we must use `--legacy-peer-deps`. I could have spent a bit more time to write a unit test without using this particular library, but I wanted to manage it with limited time.
 
 ### Testing
 * `npm run test`
