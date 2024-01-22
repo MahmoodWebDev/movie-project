@@ -1,8 +1,21 @@
-# React + Vite
+## Movie Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a coding challenge done by Mahmood shah on 20th and 21st Jan 2024.
 
-Currently, two official plugins are available:
+This project is a front-end task focused on retrieving movie information. Initially, you'll notice only a search bar. When you start typing, suggestions appear automatically, I used debouncing here. Pressing the enter key after searching will display a collection of movies. Each movie is presented in a simple, stylish card that shows only basic details. Clicking on a movie card reveals more information in a drawer. If you click on a movie's image, it will open in a new tab using the link provided for the movie's poster.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I have used Material UI library in order to give it a clean and elegant touch as well maintaining the best practices.
+
+### Installation Instructions
+* `npm i`
+* `npm run dev`
+
+### Testing
+* `npm run test`
+
+### Minimum requirements
+* Node 18.x
+* NPM 9.x
+
+### Contacts
+* https://mahmood.io
